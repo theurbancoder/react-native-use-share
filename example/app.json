@@ -1,0 +1,22 @@
+{
+  "name": "react-native-use-share-example",
+  "displayName": "UseShare Example",
+  "expo": {
+    "name": "react-native-use-share-example",
+    "slug": "react-native-use-share-example",
+    "description": "Example app for react-native-use-share",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
