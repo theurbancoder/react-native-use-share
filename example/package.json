@@ -17,7 +17,16 @@
     "react-dom": "~16.9.0",
     "react-native": "~0.61.5",
     "react-native-unimodules": "~0.9.0",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "expo-linking": "~1.0.1",
+    "expo-localization": "~8.1.0",
+    "expo-mail-composer": "~8.1.0",
+    "expo-sms": "~8.1.0",
+    "react-native-appearance": "~0.3.3",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-reanimated": "~1.7.0",
+    "react-native-redash": "^14.1.1",
+    "react-native-svg": "11.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

@@ -1,0 +1,9 @@
+export { default as arabic } from './arabic';
+export { default as chinese } from './chinese';
+export { default as english } from './english';
+export { default as french } from './french';
+export { default as hindi } from './hindi';
+export { default as japanese } from './japanese';
+export { default as portuguese } from './portuguese';
+export { default as spanish } from './spanish';
+export { default as swedish } from './swedish';

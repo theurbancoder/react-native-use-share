@@ -1,25 +1,23 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import UseShare from 'react-native-use-share';
+import { StyleSheet, View } from 'react-native';
+import { ShareProvider } from 'react-native-use-share';
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+import ShareButton from './ShareButton';
 
-  React.useEffect(() => {
-    UseShare.multiply(3, 7).then(setResult);
-  }, []);
-
-  return (
+const App = () => (
+  <ShareProvider>
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <ShareButton />
     </View>
-  );
-}
+  </ShareProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+    padding: 15,
   },
 });
+
+export default App;
