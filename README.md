@@ -1,6 +1,6 @@
-# react-native-use-share
+# React native - Use share
 
-React native javascript share sheet
+React Native - Use Share is a JavaScript implementation of a share sheet.
 
 ## Installation
 
@@ -11,11 +11,42 @@ npm install react-native-use-share
 ## Usage
 
 ```js
-import UseShare from "react-native-use-share";
+import React from 'react';
+import { ShareProvider } from 'react-native-use-share';
+import ShareButton from './ShareButton';
 
-// ...
+const App = ({ children }) => (
+  <ShareProvider>
+    <ShareButton />
+  </ShareProvider>
+);
 
-const result = await UseShare.multiply(3, 7);
+export default App;
+```
+
+```js
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
+import { useShare } from 'react-native-use-share';
+
+const ShareButton = ({ children }) => {
+  const { share } = useShare();
+
+  const onPress = () =>
+    share({
+      title: 'Share',
+      message: 'Check out this article: ',
+      url: 'https://en.wikipedia.org/wiki/React_Native',
+    });
+
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text>Share</Text>
+    </TouchableOpacity>
+  );
+};
+
+export default Providers;
 ```
 
 ## Contributing

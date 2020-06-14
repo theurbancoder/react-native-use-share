@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 
-import Icon, { IconName } from '../icons/Icon';
+import Icon from '../icons/Icon';
 import { useColor } from '../utils/useColor';
+import { ShareType } from '../interfaces';
 
 interface Props {
-  icon: IconName;
+  icon: ShareType;
   text: string;
   backgroundColor?: string;
   onPress: () => void;
