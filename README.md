@@ -2,7 +2,7 @@
 
 React Native - Use Share is a JavaScript implementation of a share sheet.
 
-![alt text](https://github.com/theurbancoder/react-native-use-share/blob/master/example.png?raw=true)
+![alt text](https://github.com/theurbancoder/react-native-use-share/blob/master/assets/example.png?raw=true)
 
 ## Installation
 
