@@ -116,10 +116,6 @@ The share provider takes an options argument to configure the share dialog.
 | linkedin  | Opens LinkedIn's website, deep links to the app if installed  |        |
 | copy      | Copies message + url to clipboard                             |        |
 
-## Dark mode
-
-The library uses react-native-appearance to enable dark mode. It requires some configuration to work, see more at the [expo docs](https://docs.expo.io/versions/latest/sdk/appearance/).
-
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
