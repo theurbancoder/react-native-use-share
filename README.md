@@ -4,6 +4,10 @@ React Native - Use Share is a JavaScript implementation of a share sheet.
 
 <img src="https://github.com/theurbancoder/react-native-use-share/blob/master/assets/example.png?raw=true" width="800">
 
+| iOS                | Android            | Web                |
+| ------------------ | ------------------ | ------------------ |
+| :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
 ## Installation
 
 Install the package and all the peer dependencies.
@@ -51,8 +55,9 @@ const ShareButton = () => {
   const onPress = () =>
     share({
       title: 'Share',
-      message: 'Check out this article: ',
-      url: 'https://en.wikipedia.org/wiki/React_Native',
+      message:
+        'There is a new share sheet for react native, you should check it out: ',
+      url: 'https://github.com/theurbancoder/react-native-use-share',
     });
 
   return (
@@ -69,10 +74,10 @@ export default Providers;
 
 The share provider takes an options argument to configure the share dialog.
 
-| Argument     | Value                                                  | Default                                                |
-| ------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| language     | language code, eg. "en"                                | Undefined, will take the current language of the phone |
-| defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"]                        |
+| Argument     | Value                                                  | Default                              |
+| ------------ | ------------------------------------------------------ | ------------------------------------ |
+| language     | language code, eg. "en"                                | Undefined, will take system language |
+| defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"]      |
 
 ```js
 const App = () => (
