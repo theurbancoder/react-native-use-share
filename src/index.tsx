@@ -7,9 +7,13 @@ import { LocalizationProvider } from './localizations/useTranslations';
 import { ScreenSizeProvider } from './screenSize/useScreenSize';
 import ShareSheet from './components/ShareSheet';
 
-interface Props {
+export interface ShareOptions {
   language?: string;
-  types?: ShareType[];
+  defaultTypes?: ShareType[];
+}
+
+interface Props {
+  options?: ShareOptions;
 }
 
 export interface IShareContext {
@@ -20,7 +24,7 @@ const ShareContext = createContext<IShareContext>({
   share: () => {},
 });
 
-const ShareProvider: FC<Props> = ({ children, language, ...props }) => {
+const ShareProvider: FC<Props> = ({ children, options }) => {
   const [isDisplaying, setIsDisplaying] = useState(false);
   const [details, setDetails] = useState<ShareProps>({});
 
@@ -35,13 +39,13 @@ const ShareProvider: FC<Props> = ({ children, language, ...props }) => {
     <SafeAreaProvider>
       <AppearanceProvider>
         <ScreenSizeProvider>
-          <LocalizationProvider language={language}>
+          <LocalizationProvider language={options && options.language}>
             <ShareContext.Provider value={{ share }}>
               <ShareSheet
                 isDisplaying={isDisplaying}
                 details={details}
                 close={close}
-                {...props}
+                types={options && options.defaultTypes}
               >
                 {children}
               </ShareSheet>

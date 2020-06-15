@@ -6,11 +6,23 @@ React Native - Use Share is a JavaScript implementation of a share sheet.
 
 ## Installation
 
+Install the package and all the peer dependencies.
+
 ```sh
 npm install react-native-use-share
+
+npm install expo-linking expo-localization expo-mail-composer expo-sms react-native-appearance react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-redash react-native-svg react-responsive
+```
+
+```sh
+yarn add react-native-use-share
+
+yarn add expo-linking expo-localization expo-mail-composer expo-sms react-native-appearance react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-redash react-native-svg react-responsive
 ```
 
 ## Usage
+
+Wrap your main component in the share provider.
 
 ```js
 import React from 'react';
@@ -25,6 +37,8 @@ const App = () => (
 
 export default App;
 ```
+
+Children of the main component can then call useShare, and use the share function to display the share modal.
 
 ```js
 import React from 'react';
@@ -49,6 +63,26 @@ const ShareButton = () => {
 };
 
 export default Providers;
+```
+
+## Configure
+
+The share provider takes an options argument to configure the share dialog.
+
+| Argument     |                         Value                          |                                                Default |
+| ------------ | :----------------------------------------------------: | -----------------------------------------------------: |
+| language     |                language code, eg. "en"                 | Undefined, will take the current language of the phone |
+| defaultTypes | String array specifying which share buttons to display |                        ["Sms", "Mail", "Copy", "More"] |
+
+```js
+const App = () => (
+  <ShareProvider options={{
+    language: "en",
+    defaultTypes: ["Sms", "Mail", "Twitter"]
+  }}>
+    {...}
+  </ShareProvider>
+);
 ```
 
 ## Contributing

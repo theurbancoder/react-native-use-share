@@ -85,8 +85,8 @@ const ShareSheet: FC<Props> = ({
             {
               backgroundColor: backgroundPrimary,
               paddingRight: insets.right,
-              paddingBottom: insets.bottom + 20,
             },
+            screenSize === 'small' && { paddingBottom: insets.bottom + 20 },
           ]}
         >
           <ShareDetails {...details} />
