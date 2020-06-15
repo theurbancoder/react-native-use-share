@@ -1,3 +1,4 @@
+import React, { createContext, FC } from 'react';
 import { useColorScheme } from 'react-native-appearance';
 
 interface Color {
@@ -20,6 +21,26 @@ const darkColor: Color = {
   backgroundPrimary: '#222222',
   backgroundSecondary: '#444',
 };
+
+export type Theme = 'dark' | 'light' | 'no-preference';
+
+export interface IAppearanceContext {
+  theme: Theme;
+}
+
+const AppearanceContext = createContext<IAppearanceContext>({
+  theme: 'light',
+});
+
+interface Props {
+  theme?: Theme;
+}
+
+export const AppearanceProvider: FC<Props> = ({ children, theme }) => (
+  <AppearanceContext.Provider value={{ theme: theme || 'light' }}>
+    {children}
+  </AppearanceContext.Provider>
+);
 
 export const useColor = () => {
   const colorScheme = useColorScheme();

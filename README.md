@@ -28,7 +28,6 @@ To use the library you need to install all peer dependencies.
 - expo-localization
 - expo-mail-composer
 - expo-sms
-- react-native-appearance
 - react-native-gesture-handler
 - react-native-reanimated
 - react-native-safe-area-context
@@ -90,12 +89,14 @@ The share provider takes an options argument to configure the share dialog.
 | ------------ | ------------------------------------------------------ | ------------------------------------ |
 | language     | language code, eg. "en"                                | Undefined, will take system language |
 | defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"]      |
+| theme        | 'dark' or 'light'                                      | 'light'                              |
 
 ```js
 const App = () => (
   <ShareProvider options={{
     language: "en",
     defaultTypes: ["sms", "email", "twitter"]
+    theme: "dark"
   }}>
     {...}
   </ShareProvider>

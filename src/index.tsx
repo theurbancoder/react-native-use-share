@@ -1,15 +1,16 @@
 import React, { FC, createContext, useContext, useState } from 'react';
-import { AppearanceProvider } from 'react-native-appearance';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ShareType, ShareProps } from './interfaces';
 import { LocalizationProvider } from './localizations/useTranslations';
 import { ScreenSizeProvider } from './screenSize/useScreenSize';
 import ShareSheet from './components/ShareSheet';
+import { AppearanceProvider, Theme } from './utils/useColor';
 
 export interface ShareOptions {
   language?: string;
   defaultTypes?: Array<Exclude<ShareType, 'more'>>;
+  theme?: Theme;
 }
 
 export interface ShareFnOptions {
@@ -57,7 +58,7 @@ const ShareProvider: FC<Props> = ({ children, options: defaultOptions }) => {
 
   return (
     <SafeAreaProvider>
-      <AppearanceProvider>
+      <AppearanceProvider theme={defaultOptions && defaultOptions.theme}>
         <ScreenSizeProvider>
           <LocalizationProvider language={language}>
             <ShareContext.Provider value={{ share }}>
