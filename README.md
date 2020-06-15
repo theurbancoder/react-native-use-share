@@ -17,7 +17,7 @@ import React from 'react';
 import { ShareProvider } from 'react-native-use-share';
 import ShareButton from './ShareButton';
 
-const App = ({ children }) => (
+const App = () => (
   <ShareProvider>
     <ShareButton />
   </ShareProvider>
@@ -31,7 +31,7 @@ import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import { useShare } from 'react-native-use-share';
 
-const ShareButton = ({ children }) => {
+const ShareButton = () => {
   const { share } = useShare();
 
   const onPress = () =>
