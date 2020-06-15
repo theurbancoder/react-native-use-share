@@ -1,6 +1,6 @@
 {
   "name": "react-native-use-share",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "React native javascript share sheet",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
