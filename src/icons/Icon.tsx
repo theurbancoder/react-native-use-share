@@ -1,11 +1,13 @@
 import React from 'react';
-import MailIcon from './MailIcon';
+
+import EmailIcon from './EmailIcon';
 import SmsIcon from './SmsIcon';
 import LinkedInIcon from './LinkedInIcon';
 import CopyIcon from './CopyIcon';
 import TwitterIcon from './TwitterIcon';
 import MoreIcon from './MoreIcon';
 import { ShareType } from '../interfaces';
+import WhatsAppIcon from './WhatsAppIcon';
 
 interface Props {
   name: ShareType;
@@ -14,24 +16,29 @@ interface Props {
 
 const Icon = ({ name, size }: Props) => {
   switch (name) {
-    case 'Mail': {
-      return <MailIcon size={size} />;
+    case 'email': {
+      return <EmailIcon size={size} />;
     }
-    case 'Sms': {
+    case 'sms': {
       return <SmsIcon size={size} />;
     }
-    case 'LinkedIn': {
+    case 'linkedin': {
       return <LinkedInIcon size={size} />;
     }
-    case 'Copy': {
+    case 'copy': {
       return <CopyIcon size={size} />;
     }
-    case 'Twitter': {
+    case 'twitter': {
       return <TwitterIcon size={size} />;
     }
-    case 'More': {
+    case 'more': {
       return <MoreIcon size={size} />;
     }
+    case 'whats-app': {
+      return <WhatsAppIcon size={size} />;
+    }
+    default:
+      return null;
   }
 };
 

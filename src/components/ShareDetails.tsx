@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { OUTER_MARGIN } from '../utils/constants';
-import { ShareProps } from '../shareButtons/interfaces';
 import { useColor } from '../utils/useColor';
 import { useLocalization } from '../localizations/useTranslations';
+import { ShareProps } from '../interfaces';
 
 const ShareDetails = ({ title, message, url }: ShareProps) => {
   const { fillPrimary, backgroundSecondary } = useColor();

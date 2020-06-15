@@ -9,7 +9,12 @@ import ShareSheet from './components/ShareSheet';
 
 export interface ShareOptions {
   language?: string;
-  defaultTypes?: ShareType[];
+  defaultTypes?: Array<Exclude<ShareType, 'more'>>;
+}
+
+export interface ShareFnOptions {
+  language?: string;
+  types?: Array<Exclude<ShareType, 'more'>>;
 }
 
 interface Props {
@@ -17,20 +22,35 @@ interface Props {
 }
 
 export interface IShareContext {
-  share: (props: ShareProps) => void;
+  share: (props: ShareProps, options?: ShareFnOptions) => void;
 }
 
 const ShareContext = createContext<IShareContext>({
-  share: () => {},
+  share: (_: ShareProps, __?: ShareFnOptions) => {},
 });
 
-const ShareProvider: FC<Props> = ({ children, options }) => {
+const ShareProvider: FC<Props> = ({ children, options: defaultOptions }) => {
   const [isDisplaying, setIsDisplaying] = useState(false);
   const [details, setDetails] = useState<ShareProps>({});
+  const [language, setLanguage] = useState(
+    defaultOptions && defaultOptions.language
+  );
+  const [types, setTypes] = useState(
+    defaultOptions && defaultOptions.defaultTypes
+  );
 
-  const share = (newDetails: ShareProps) => {
+  const share = (newDetails: ShareProps, options?: ShareFnOptions) => {
     setDetails(newDetails);
     setIsDisplaying(true);
+    if (!options) {
+      return;
+    }
+    if (options.language) {
+      setLanguage(options.language);
+    }
+    if (options.types) {
+      setTypes(options.types);
+    }
   };
 
   const close = () => setIsDisplaying(false);
@@ -39,13 +59,13 @@ const ShareProvider: FC<Props> = ({ children, options }) => {
     <SafeAreaProvider>
       <AppearanceProvider>
         <ScreenSizeProvider>
-          <LocalizationProvider language={options && options.language}>
+          <LocalizationProvider language={language}>
             <ShareContext.Provider value={{ share }}>
               <ShareSheet
                 isDisplaying={isDisplaying}
                 details={details}
                 close={close}
-                types={options && options.defaultTypes}
+                types={types}
               >
                 {children}
               </ShareSheet>

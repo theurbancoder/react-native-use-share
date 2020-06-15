@@ -5,23 +5,24 @@ import BaseButton from './BaseButton';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
-const BASE_URL = 'http://twitter.com/share';
+const BASE_URL = 'https://wa.me';
 
-const Twitter = ({ url, message }: ShareProps) => {
+const WhatsApp = ({ url, message }: ShareProps) => {
   const { translate } = useLocalization();
+
   const query = getQueryString({
     url,
-    text: message,
+    text: `${message}: ${url}`,
   });
 
   return (
     <BaseButton
-      icon="twitter"
-      text={translate('twitter')}
-      backgroundColor="#00acee"
+      icon="whats-app"
+      text={translate('whats-app')}
+      backgroundColor="#25D366"
       serviceUrl={BASE_URL + query}
     />
   );
 };
 
-export default Twitter;
+export default WhatsApp;

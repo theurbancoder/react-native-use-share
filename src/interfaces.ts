@@ -1,10 +1,11 @@
 export type ShareType =
-  | 'Mail'
-  | 'Sms'
-  | 'LinkedIn'
-  | 'Copy'
-  | 'Twitter'
-  | 'More';
+  | 'email'
+  | 'sms'
+  | 'linkedin'
+  | 'copy'
+  | 'twitter'
+  | 'whats-app'
+  | 'more';
 
 export interface ShareProps {
   title?: string;

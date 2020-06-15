@@ -4,7 +4,18 @@ import { ShareProvider } from 'react-native-use-share';
 import ShareButton from './ShareButton';
 
 const App = () => (
-  <ShareProvider>
+  <ShareProvider
+    options={{
+      defaultTypes: [
+        'sms',
+        'whats-app',
+        'twitter',
+        'linkedin',
+        'email',
+        'copy',
+      ],
+    }}
+  >
     <ShareButton />
   </ShareProvider>
 );

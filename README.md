@@ -69,21 +69,34 @@ export default Providers;
 
 The share provider takes an options argument to configure the share dialog.
 
-| Argument     |                         Value                          |                                                Default |
-| ------------ | :----------------------------------------------------: | -----------------------------------------------------: |
-| language     |                language code, eg. "en"                 | Undefined, will take the current language of the phone |
-| defaultTypes | String array specifying which share buttons to display |                        ["Sms", "Mail", "Copy", "More"] |
+| Argument     | Value                                                  | Default                                                |
+| ------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| language     | language code, eg. "en"                                | Undefined, will take the current language of the phone |
+| defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"]                        |
 
 ```js
 const App = () => (
   <ShareProvider options={{
     language: "en",
-    defaultTypes: ["Sms", "Mail", "Twitter"]
+    defaultTypes: ["sms", "email", "twitter"]
   }}>
     {...}
   </ShareProvider>
 );
 ```
+
+## Share Types
+
+The share provider takes an options argument to configure the share dialog.
+
+| Type      | Value                                                         | Config |
+| --------- | ------------------------------------------------------------- | ------ |
+| sms       | Opens sms app on a mobile device. Not supported on web.       |        |
+| email     | Opens default email client                                    |        |
+| twitter   | Opens twitter website, deep links to the app if installed     |        |
+| whats-app | Opens Whats App's website, deep links to the app if installed |        |
+| linkedin  | Opens LinkedIn's website, deep links to the app if installed  |        |
+| copy      | Copies message + url to clipboard                             |        |
 
 ## Contributing
 

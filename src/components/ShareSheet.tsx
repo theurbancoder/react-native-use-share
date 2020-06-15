@@ -11,14 +11,7 @@ import { useColor } from '../utils/useColor';
 import { ShareProps, ShareType } from '../interfaces';
 import { useScreenSize } from '../screenSize/useScreenSize';
 
-const defaultTypes: ShareType[] = [
-  'Sms',
-  'Twitter',
-  'LinkedIn',
-  'Mail',
-  'Copy',
-  'More',
-];
+const defaultTypes: ShareType[] = ['sms', 'email', 'copy'];
 
 interface Props {
   types?: ShareType[];
@@ -124,7 +117,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     top: 0,
     right: 0,
-    width: 400,
+    width: 405,
   },
 });
 

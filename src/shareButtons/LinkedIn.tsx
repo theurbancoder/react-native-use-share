@@ -1,31 +1,26 @@
 import React from 'react';
-import * as Linking from 'expo-linking';
 
 import { getQueryString } from '../utils/queryParams';
 import BaseButton from './BaseButton';
-import { ShareProps } from './interfaces';
+import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
 const BASE_URL = 'https://www.linkedin.com/shareArticle';
 
 const LinkedIn = ({ title, url, message }: ShareProps) => {
   const { translate } = useLocalization();
-
-  const onPress = () => {
-    const query = getQueryString({
-      mini: 'true',
-      url,
-      title,
-      summary: message,
-    });
-    Linking.openURL(BASE_URL + query);
-  };
+  const query = getQueryString({
+    mini: 'true',
+    url,
+    title,
+    summary: message,
+  });
 
   return (
     <BaseButton
-      icon="LinkedIn"
-      text={translate('linkedIn')}
-      onPress={onPress}
+      icon="linkedin"
+      text={translate('linkedin')}
+      serviceUrl={BASE_URL + query}
       backgroundColor="#0e76a8"
     />
   );

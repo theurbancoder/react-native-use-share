@@ -13,7 +13,9 @@ import {
   spanish,
   swedish,
 } from './languages';
-import { Terms } from './interfaces';
+import { ShareType } from 'src/interfaces';
+
+type Terms = Record<ShareType | 'share', string>;
 
 const terms: Record<string, Terms> = {
   ar: arabic,

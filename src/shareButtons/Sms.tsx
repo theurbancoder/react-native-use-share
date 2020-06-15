@@ -3,16 +3,11 @@ import * as Linking from 'expo-linking';
 import * as SMS from 'expo-sms';
 
 import BaseButton from './BaseButton';
-import { ShareProps } from './interfaces';
+import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
-import { Platform } from 'react-native';
 
 const Sms = ({ url, message }: ShareProps) => {
   const { translate } = useLocalization();
-
-  if (Platform.OS === 'web') {
-    return null;
-  }
 
   const onPress = async () => {
     const payload = `${message} ${url}`;
@@ -26,7 +21,7 @@ const Sms = ({ url, message }: ShareProps) => {
 
   return (
     <BaseButton
-      icon="Sms"
+      icon="sms"
       text={translate('sms')}
       onPress={onPress}
       backgroundColor="#53d769"

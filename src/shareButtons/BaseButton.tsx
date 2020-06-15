@@ -1,5 +1,12 @@
-import React from 'react';
-import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import React, { FC } from 'react';
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  StyleSheet,
+  Platform,
+} from 'react-native';
+import * as Linking from 'expo-linking';
 
 import Icon from '../icons/Icon';
 import { useColor } from '../utils/useColor';
@@ -9,14 +16,46 @@ interface Props {
   icon: ShareType;
   text: string;
   backgroundColor?: string;
-  onPress: () => void;
+  onPress?: () => void;
+  serviceUrl?: string;
 }
 
-const BaseButton = ({ backgroundColor, text, icon, onPress }: Props) => {
+interface LinkProps {
+  onPress?: () => void;
+  serviceUrl?: string;
+}
+
+const Link: FC<LinkProps> = ({ onPress, serviceUrl, children }) => {
+  if (Platform.OS === 'web' && serviceUrl) {
+    console.log('hgot');
+    return (
+      <a href={serviceUrl} target="_blank">
+        {children}
+      </a>
+    );
+  }
+  let onPressAction = onPress;
+  if (serviceUrl) {
+    onPressAction = () => Linking.openURL(serviceUrl);
+  }
+  return (
+    <TouchableWithoutFeedback onPress={onPressAction}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
+};
+
+const BaseButton = ({
+  backgroundColor,
+  text,
+  icon,
+  serviceUrl,
+  onPress,
+}: Props) => {
   const { backgroundSecondary, fillPrimary } = useColor();
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={onPress}>
+      <Link onPress={onPress} serviceUrl={serviceUrl}>
         <View
           style={[
             styles.button,
@@ -27,7 +66,7 @@ const BaseButton = ({ backgroundColor, text, icon, onPress }: Props) => {
         >
           <Icon name={icon} size={30} />
         </View>
-      </TouchableWithoutFeedback>
+      </Link>
       <Text
         style={[
           styles.text,

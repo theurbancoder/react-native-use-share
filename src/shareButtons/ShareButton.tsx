@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { ShareType, ShareProps } from './interfaces';
 import Sms from './Sms';
 import Twitter from './Twitter';
 import LinkedIn from './LinkedIn';
-import Mail from './Mail';
+import Email from './Email';
 import Copy from './Copy';
 import More from './More';
+import WhatsApp from './WhatsApp';
+import { ShareProps, ShareType } from './../interfaces';
 
 interface Props extends ShareProps {
   type: ShareType;
@@ -15,18 +16,20 @@ interface Props extends ShareProps {
 
 const ShareButton = ({ type, ...props }: Props) => {
   switch (type) {
-    case 'Sms':
+    case 'sms':
       return <Sms {...props} />;
-    case 'Twitter':
+    case 'twitter':
       return <Twitter {...props} />;
-    case 'LinkedIn':
+    case 'linkedin':
       return <LinkedIn {...props} />;
-    case 'Mail':
-      return <Mail {...props} />;
-    case 'Copy':
+    case 'email':
+      return <Email {...props} />;
+    case 'copy':
       return <Copy {...props} />;
-    case 'More':
+    case 'more':
       return <More {...props} />;
+    case 'whats-app':
+      return <WhatsApp {...props} />;
   }
 };
 

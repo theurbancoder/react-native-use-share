@@ -2,17 +2,14 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useShare } from 'react-native-use-share';
 
+const message =
+  'There is a new share sheet for react native, you should check it out: ';
 const url = 'https://github.com/theurbancoder/react-native-use-share';
 
 const ShareButton = () => {
   const { share } = useShare();
 
-  const onPress = () =>
-    share({
-      message:
-        'There is a new share sheet for react native, you should check it out: ',
-      url,
-    });
+  const onPress = () => share({ message, url });
 
   return (
     <View style={styles.container}>
