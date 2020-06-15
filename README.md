@@ -14,15 +14,27 @@ Install the package and all the peer dependencies.
 
 ```sh
 npm install react-native-use-share
-
-npm install expo-linking expo-localization expo-mail-composer expo-sms react-native-appearance react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-redash react-native-svg react-responsive
 ```
 
 ```sh
 yarn add react-native-use-share
-
-yarn add expo-linking expo-localization expo-mail-composer expo-sms react-native-appearance react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-redash react-native-svg react-responsive
 ```
+
+## Peer dependencies
+
+To use the library you need to install all peer dependencies.
+
+- expo-linking
+- expo-localization
+- expo-mail-composer
+- expo-sms
+- react-native-appearance
+- react-native-gesture-handler
+- react-native-reanimated
+- react-native-safe-area-context
+- react-native-redash
+- react-native-svg
+- react-responsive
 
 ## Usage
 
