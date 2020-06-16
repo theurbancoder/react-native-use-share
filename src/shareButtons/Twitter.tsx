@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getQueryString } from '../utils/queryParams';
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -15,7 +15,7 @@ const Twitter = ({ url, message }: ShareProps) => {
   });
 
   return (
-    <BaseButton
+    <Button
       icon="twitter"
       text={translate('twitter')}
       backgroundColor="#00acee"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clipboard } from 'react-native';
 
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -15,7 +15,7 @@ const Copy = ({ url, message }: ShareProps) => {
     Clipboard.setString(payload);
   };
 
-  return <BaseButton icon="copy" onPress={onPress} text={translate('copy')} />;
+  return <Button icon="copy" onPress={onPress} text={translate('copy')} />;
 };
 
 export default Copy;

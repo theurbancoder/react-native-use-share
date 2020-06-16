@@ -67,7 +67,6 @@
     "react-native-reanimated": "~1.7.0",
     "react-native-redash": "^14.1.1",
     "react-native-svg": "11.0.1",
-    "react-responsive": "^8.1.0",
     "react-native-safe-area-context": "^0.7.0",
     "release-it": "^13.5.8",
     "typescript": "^3.8.3"
@@ -82,8 +81,7 @@
     "react-native-reanimated": "~1.7.0",
     "react-native-safe-area-context": "^0.7.0",
     "react-native-redash": "^14.1.1",
-    "react-native-svg": "11.0.1",
-    "react-responsive": "^8.1.0"
+    "react-native-svg": "11.0.1"
   },
   "jest": {
     "preset": "react-native",

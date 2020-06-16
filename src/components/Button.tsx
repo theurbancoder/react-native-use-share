@@ -44,7 +44,7 @@ const Link: FC<LinkProps> = ({ onPress, serviceUrl, children }) => {
   );
 };
 
-const BaseButton = ({
+const Button = ({
   backgroundColor,
   text,
   icon,
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BaseButton;
+export default Button;

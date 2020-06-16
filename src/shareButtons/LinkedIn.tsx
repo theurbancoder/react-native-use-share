@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getQueryString } from '../utils/queryParams';
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -17,7 +17,7 @@ const LinkedIn = ({ title, url, message }: ShareProps) => {
   });
 
   return (
-    <BaseButton
+    <Button
       icon="linkedin"
       text={translate('linkedin')}
       serviceUrl={BASE_URL + query}

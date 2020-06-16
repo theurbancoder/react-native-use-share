@@ -12,3 +12,5 @@ export interface ShareProps {
   message?: string;
   url?: string;
 }
+
+export type SharePosition = 'bottom' | 'right';

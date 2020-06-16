@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getQueryString } from '../utils/queryParams';
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -16,7 +16,7 @@ const WhatsApp = ({ url, message }: ShareProps) => {
   });
 
   return (
-    <BaseButton
+    <Button
       icon="whats-app"
       text={translate('whats-app')}
       backgroundColor="#25D366"

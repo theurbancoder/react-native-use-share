@@ -4,30 +4,28 @@ import Animated, { interpolate } from 'react-native-reanimated';
 import { useTransition } from 'react-native-redash';
 import { useSafeArea } from 'react-native-safe-area-context';
 
-import ShareHeader from './ShareHeader';
-import ShareDetails from './ShareDetails';
-import ButtonRow from './ButtonRow';
+import DragHandle from './DragHandle';
+import Header from './Header';
+import Content from './Content';
 import { useColor } from '../utils/useColor';
-import { ShareProps, ShareType } from '../interfaces';
-import { useScreenSize } from '../screenSize/useScreenSize';
-
-const defaultTypes: ShareType[] = ['sms', 'email', 'copy'];
+import { ShareProps, ShareType, SharePosition } from '../interfaces';
 
 interface Props {
-  types?: ShareType[];
+  types: ShareType[];
   isDisplaying: boolean;
   details: ShareProps;
+  position: SharePosition;
   close: () => void;
 }
 
 const ShareSheet: FC<Props> = ({
   children,
-  types = defaultTypes,
+  types,
   isDisplaying,
+  position,
   details,
   close,
 }) => {
-  const { screenSize } = useScreenSize();
   const { backgroundPrimary } = useColor();
   const transition = useTransition(isDisplaying);
   const insets = useSafeArea();
@@ -39,11 +37,11 @@ const ShareSheet: FC<Props> = ({
 
   const translation = interpolate(transition, {
     inputRange: [0, 1],
-    outputRange: screenSize === 'large' ? [400, 0] : [500, 0],
+    outputRange: position === 'right' ? [400, 0] : [500, 0],
   });
 
   const transform: any[] = [
-    screenSize === 'large'
+    position === 'right'
       ? {
           translateX: translation,
         }
@@ -67,11 +65,11 @@ const ShareSheet: FC<Props> = ({
       </Animated.View>
       <Animated.View
         style={[
-          screenSize === 'large' ? styles.largeModal : styles.modal,
+          position === 'right' ? styles.largeModal : styles.modal,
           { transform },
         ]}
       >
-        <ShareHeader showDragHandle={screenSize === 'small'} />
+        <DragHandle showDragHandle={position === 'bottom'} />
         <View
           style={[
             styles.innerContainer,
@@ -79,11 +77,16 @@ const ShareSheet: FC<Props> = ({
               backgroundColor: backgroundPrimary,
               paddingRight: insets.right,
             },
-            screenSize === 'small' && { paddingBottom: insets.bottom + 20 },
+            position === 'bottom' && { paddingBottom: insets.bottom + 20 },
           ]}
         >
-          <ShareDetails {...details} />
-          <ButtonRow types={types} details={details} close={close} />
+          <Header {...details} />
+          <Content
+            types={types}
+            details={details}
+            position={position}
+            close={close}
+          />
         </View>
       </Animated.View>
     </View>

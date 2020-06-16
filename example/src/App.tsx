@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useWindowDimensions } from 'react-native';
 import * as Localization from 'expo-localization';
 import { useColorScheme } from 'react-native-appearance';
 import { ShareProvider } from 'react-native-use-share';
@@ -7,6 +8,7 @@ import ShareButton from './ShareButton';
 
 const App = () => {
   const theme = useColorScheme();
+  const { width, height } = useWindowDimensions();
 
   return (
     <ShareProvider
@@ -21,6 +23,7 @@ const App = () => {
           'copy',
         ],
         language: Localization.locale,
+        position: width > height ? 'right' : 'bottom',
       }}
     >
       <ShareButton />

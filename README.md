@@ -2,6 +2,15 @@
 
 React Native - Use Share is a JavaScript implementation of a share sheet.
 
+Why?
+
+- Same user experience on all platforms
+- Works on web (doesn't use web share API, but deep links to each share provider)
+- Responsive layout
+- Dark mode
+- Localized (see languages)
+- Typescript support
+
 <img src="https://github.com/theurbancoder/react-native-use-share/blob/master/assets/example.png?raw=true" width="800">
 
 | iOS                | Android            | Web                |
@@ -16,6 +25,8 @@ Install the package and all the peer dependencies.
 npm install react-native-use-share
 ```
 
+or
+
 ```sh
 yarn add react-native-use-share
 ```
@@ -29,10 +40,9 @@ To use the library you need to install all peer dependencies.
 - expo-sms
 - react-native-gesture-handler
 - react-native-reanimated
-- react-native-safe-area-context
 - react-native-redash
+- react-native-safe-area-context
 - react-native-svg
-- react-responsive
 
 ## Usage
 
@@ -84,26 +94,32 @@ export default Providers;
 
 The share provider takes an options argument to configure the share dialog.
 
-| Argument     | Value                                                  | Default                         |
-| ------------ | ------------------------------------------------------ | ------------------------------- |
-| defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"] |
-| language     | language code, eg. "en"                                | "en                             |
-| theme        | 'dark' or 'light'                                      | 'light'                         |
+| Argument     | Value                                                  | Default                          |
+| ------------ | ------------------------------------------------------ | -------------------------------- |
+| defaultTypes | String array specifying which share buttons to display | ["sms", "email", "copy", "more"] |
+| language     | language code, eg. "en"                                | "en                              |
+| theme        | 'dark' or 'light'                                      | 'light'                          |
+| position     | 'bottom' or 'right'                                    | 'bottom'                         |
 
 ```js
 import React from "react";
+import { useWindowDimensions } from 'react-native';
 import { ShareProvider } from 'react-native-use-share';
 import * as Localization from 'expo-localization';
 
-const App = () => (
+const App = () => {
+  const { width, height } = useWindowDimensions();
+  return (
   <ShareProvider options={{
+    defaultTypes: ["sms", "email", "twitter"],
     language: Localization.locale,
-    defaultTypes: ["sms", "email", "twitter"]
-    theme: "dark"
+    theme: "dark",
+    position: width > height ? 'right' : 'bottom',
   }}>
     {...}
   </ShareProvider>
 );
+};
 ```
 
 ## Share Types
@@ -122,6 +138,14 @@ The share provider takes an options argument to configure the share dialog.
 ## Languages
 
 Currently supports arabic, chinese, english, french, hindi, japanese, portuguese, spanish and swedish. Contributions is appreciated.
+
+## Theme
+
+The library supports light and dark mode.
+
+## Position
+
+The library supports two positions of the share component, bottom and right. Bottom is recommended for smaller devices and right for larger. In the example above, the position is based on the orientation of the device. For better web support it might be worth looking at [react-responsive](https://github.com/contra/react-responsive) and [@expo/media-match](https://github.com/expo/match-media).
 
 ## Contributing
 

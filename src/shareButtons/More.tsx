@@ -1,7 +1,7 @@
 import React from 'react';
 import { Share } from 'react-native';
 
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -17,7 +17,7 @@ const More = ({ closeShare, ...props }: Props) => {
     closeShare();
   };
 
-  return <BaseButton icon="more" onPress={onPress} text={translate('more')} />;
+  return <Button icon="more" onPress={onPress} text={translate('more')} />;
 };
 
 export default More;

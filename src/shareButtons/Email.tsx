@@ -1,7 +1,7 @@
 import React from 'react';
 import * as MailComposer from 'expo-mail-composer';
 
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -15,9 +15,7 @@ const Email = ({ title, url, message }: ShareProps) => {
     });
   };
 
-  return (
-    <BaseButton icon="email" onPress={onPress} text={translate('email')} />
-  );
+  return <Button icon="email" onPress={onPress} text={translate('email')} />;
 };
 
 export default Email;

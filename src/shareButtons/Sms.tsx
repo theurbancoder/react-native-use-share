@@ -2,7 +2,7 @@ import React from 'react';
 import * as Linking from 'expo-linking';
 import * as SMS from 'expo-sms';
 
-import BaseButton from '../components/BaseButton';
+import Button from '../components/Button';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 
@@ -20,7 +20,7 @@ const Sms = ({ url, message }: ShareProps) => {
   };
 
   return (
-    <BaseButton
+    <Button
       icon="sms"
       text={translate('sms')}
       onPress={onPress}
