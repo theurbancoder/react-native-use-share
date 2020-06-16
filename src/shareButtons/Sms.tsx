@@ -2,7 +2,7 @@ import React from 'react';
 import * as Linking from 'expo-linking';
 import * as SMS from 'expo-sms';
 
-import BaseButton from './BaseButton';
+import BaseButton from '../components/BaseButton';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 

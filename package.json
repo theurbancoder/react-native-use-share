@@ -55,7 +55,6 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "expo-linking": "~1.0.1",
-    "expo-localization": "~8.1.0",
     "expo-mail-composer": "~8.1.0",
     "expo-sms": "~8.1.0",
     "husky": "^4.2.5",
@@ -75,7 +74,6 @@
   },
   "peerDependencies": {
     "expo-linking": "~1.0.1",
-    "expo-localization": "~8.1.0",
     "expo-mail-composer": "~8.1.0",
     "expo-sms": "~8.1.0",
     "react": "*",

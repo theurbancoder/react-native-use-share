@@ -25,7 +25,6 @@ yarn add react-native-use-share
 To use the library you need to install all peer dependencies.
 
 - expo-linking
-- expo-localization
 - expo-mail-composer
 - expo-sms
 - react-native-gesture-handler
@@ -85,16 +84,20 @@ export default Providers;
 
 The share provider takes an options argument to configure the share dialog.
 
-| Argument     | Value                                                  | Default                              |
-| ------------ | ------------------------------------------------------ | ------------------------------------ |
-| language     | language code, eg. "en"                                | Undefined, will take system language |
-| defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"]      |
-| theme        | 'dark' or 'light'                                      | 'light'                              |
+| Argument     | Value                                                  | Default                         |
+| ------------ | ------------------------------------------------------ | ------------------------------- |
+| defaultTypes | String array specifying which share buttons to display | ["Sms", "Mail", "Copy", "More"] |
+| language     | language code, eg. "en"                                | "en                             |
+| theme        | 'dark' or 'light'                                      | 'light'                         |
 
 ```js
+import React from "react";
+import { ShareProvider } from 'react-native-use-share';
+import * as Localization from 'expo-localization';
+
 const App = () => (
   <ShareProvider options={{
-    language: "en",
+    language: Localization.locale,
     defaultTypes: ["sms", "email", "twitter"]
     theme: "dark"
   }}>
@@ -115,6 +118,10 @@ The share provider takes an options argument to configure the share dialog.
 | whats-app | Opens Whats App's website, deep links to the app if installed |        |
 | linkedin  | Opens LinkedIn's website, deep links to the app if installed  |        |
 | copy      | Copies message + url to clipboard                             |        |
+
+## Languages
+
+Currently supports arabic, chinese, english, french, hindi, japanese, portuguese, spanish and swedish. Contributions is appreciated.
 
 ## Contributing
 

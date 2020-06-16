@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as Localization from 'expo-localization';
 import { useColorScheme } from 'react-native-appearance';
 import { ShareProvider } from 'react-native-use-share';
 
@@ -19,6 +20,7 @@ const App = () => {
           'email',
           'copy',
         ],
+        language: Localization.locale,
       }}
     >
       <ShareButton />

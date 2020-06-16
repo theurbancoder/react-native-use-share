@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Sms from './Sms';
-import Twitter from './Twitter';
-import LinkedIn from './LinkedIn';
-import Email from './Email';
-import Copy from './Copy';
-import More from './More';
-import WhatsApp from './WhatsApp';
-import { ShareProps, ShareType } from './../interfaces';
+import {
+  Copy,
+  Email,
+  LinkedIn,
+  More,
+  Sms,
+  Twitter,
+  WhatsApp,
+} from '../shareButtons';
+import { ShareProps, ShareType } from '../interfaces';
 
 interface Props extends ShareProps {
   type: ShareType;

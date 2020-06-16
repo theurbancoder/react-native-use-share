@@ -1,5 +1,4 @@
-import React, { createContext, FC } from 'react';
-import { useColorScheme } from 'react-native-appearance';
+import React, { createContext, FC, useContext } from 'react';
 
 interface Color {
   fillPrimary: string;
@@ -43,6 +42,6 @@ export const AppearanceProvider: FC<Props> = ({ children, theme }) => (
 );
 
 export const useColor = () => {
-  const colorScheme = useColorScheme();
-  return colorScheme === 'dark' ? darkColor : lightColor;
+  const { theme } = useContext(AppearanceContext);
+  return theme === 'dark' ? darkColor : lightColor;
 };

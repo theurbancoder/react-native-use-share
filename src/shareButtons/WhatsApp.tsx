@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getQueryString } from '../utils/queryParams';
-import BaseButton from './BaseButton';
+import BaseButton from '../components/BaseButton';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 

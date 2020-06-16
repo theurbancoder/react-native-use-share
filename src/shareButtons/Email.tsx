@@ -1,7 +1,7 @@
 import React from 'react';
 import * as MailComposer from 'expo-mail-composer';
 
-import BaseButton from './BaseButton';
+import BaseButton from '../components/BaseButton';
 import { ShareProps } from '../interfaces';
 import { useLocalization } from '../localizations/useTranslations';
 

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import * as Linking from 'expo-linking';
 
-import Icon from '../icons/Icon';
+import Icon from './Icon';
 import { useColor } from '../utils/useColor';
 import { ShareType } from '../interfaces';
 
@@ -27,7 +27,6 @@ interface LinkProps {
 
 const Link: FC<LinkProps> = ({ onPress, serviceUrl, children }) => {
   if (Platform.OS === 'web' && serviceUrl) {
-    console.log('hgot');
     return (
       <a href={serviceUrl} target="_blank">
         {children}

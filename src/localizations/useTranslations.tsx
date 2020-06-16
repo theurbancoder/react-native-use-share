@@ -1,6 +1,5 @@
 import React, { FC, useContext } from 'react';
 import { createContext } from 'react';
-import * as Localization from 'expo-localization';
 
 import {
   arabic,
@@ -41,12 +40,13 @@ interface Props {
   language?: string;
 }
 
-export const LocalizationProvider: FC<Props> = ({ children, language }) => {
-  const deviceLocale = Localization.locale;
-  const locale =
-    deviceLocale.length > 2 ? deviceLocale.slice(0, 2) : deviceLocale;
+export const LocalizationProvider: FC<Props> = ({
+  children,
+  language = 'en',
+}) => {
+  const locale = language.length > 2 ? language.slice(0, 2) : language;
   return (
-    <LocalizationContext.Provider value={{ language: language || locale }}>
+    <LocalizationContext.Provider value={{ language: locale }}>
       {children}
     </LocalizationContext.Provider>
   );

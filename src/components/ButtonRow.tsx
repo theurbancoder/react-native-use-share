@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList, Platform } from 'react-native';
 
-import ButtonWrapper from '../shareButtons/ButtonWrapper';
-import ShareButton from '../shareButtons/ShareButton';
+import ButtonWrapper from './ButtonWrapper';
+import ShareButton from './ShareButton';
 import { ShareType, ShareProps } from '../interfaces';
 import { useScreenSize } from '../screenSize/useScreenSize';
 
